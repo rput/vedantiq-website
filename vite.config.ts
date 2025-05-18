@@ -5,6 +5,9 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   base: '/vedantiq-website/',
   plugins: [react()],
+  build: {
+    outDir: 'docs',
+  },
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
