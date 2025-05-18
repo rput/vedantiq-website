@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  @apply bg-white text-neutral-800;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-semibold leading-tight;
+}
+
+p {
+  @apply leading-relaxed;
+}
+
+.section-padding {
+  @apply py-16 md:py-24;
+}
+
+.container-padding {
+  @apply px-4 sm:px-6 lg:px-8;
+}
+
+.button {
+  @apply inline-flex items-center justify-center rounded-lg px-6 py-3 font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-opacity-50;
+}
+
+.button-primary {
+  @apply bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+}
+
+.button-secondary {
+  @apply bg-secondary-800 text-white hover:bg-secondary-900 focus:ring-secondary-700;
+}
+
+.button-outline {
+  @apply border border-primary-600 text-primary-600 hover:bg-primary-50 focus:ring-primary-500;
+}
+
+/* Animations delay classes */
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-400 {
+  animation-delay: 400ms;
+}
+
+.delay-500 {
+  animation-delay: 500ms;
+}
+
+/* Glass card effect */
+.glass-card {
+  @apply backdrop-blur-sm bg-white/80 border border-white/20 shadow-lg;
+}
+
+/* Gradient text */
+.gradient-text {
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-800;
+}
+
+/* Hero pattern */
+.hero-pattern {
+  background-image: radial-gradient(rgba(15, 118, 110, 0.1) 2px, transparent 2px);
+  background-size: 24px 24px;
+}
+
+/* Service card animation */
+.service-card {
+  @apply transition-all duration-300 hover:translate-y-[-8px] hover:shadow-lg;
+}
+
+/* Ensure images don't break layout */
+img {
+  @apply max-w-full h-auto;
+}
+
+/* Animation classes */
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-in-out forwards;
+  will-change: opacity;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out forwards;
+  will-change: transform, opacity;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out forwards;
+  will-change: transform, opacity;
+}
+
+.animate-grow {
+  animation: grow 0.5s ease-out forwards;
+  will-change: transform, opacity;
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes grow {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
