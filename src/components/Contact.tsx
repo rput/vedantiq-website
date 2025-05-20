@@ -3,6 +3,8 @@ import { Send, MapPin, Phone, Mail } from 'lucide-react';
 import SectionHeader from './ui/SectionHeader';
 import GradientButton from './ui/GradientButton';
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xdoqzqzq"; // Replace with your Formspree endpoint after signup
+
 const Contact: React.FC = () => {
   const [formState, setFormState] = useState({
     name: '',
@@ -10,6 +12,7 @@ const Contact: React.FC = () => {
     company: '',
     message: '',
   });
+  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -17,19 +20,6 @@ const Contact: React.FC = () => {
       ...prev,
       [name]: value,
     }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // In a real application, you would handle form submission here
-    console.log('Form submitted:', formState);
-    alert('Thank you for your message! We will get back to you soon.');
-    setFormState({
-      name: '',
-      email: '',
-      company: '',
-      message: '',
-    });
   };
 
   const contactInfo = [
@@ -74,7 +64,14 @@ const Contact: React.FC = () => {
 
           <div className="bg-white rounded-xl p-8 shadow-sm animate-grow">
             <h3 className="text-2xl font-semibold mb-6">Send Us a Message</h3>
-            <form onSubmit={handleSubmit}>
+            {submitted ? (
+              <div className="text-green-600 font-semibold">Thank you for your message! We will get back to you soon.</div>
+            ) : (
+            <form 
+              action={FORMSPREE_ENDPOINT} 
+              method="POST" 
+              onSubmit={() => setSubmitted(true)}
+            >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-neutral-700 mb-2">
@@ -140,6 +137,7 @@ const Contact: React.FC = () => {
                 <Send className="h-4 w-4" />
               </GradientButton>
             </form>
+            )}
           </div>
         </div>
       </div>
