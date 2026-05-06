@@ -31,7 +31,7 @@ const Contact: React.FC = () => {
     {
       icon: <Mail className="h-5 w-5 text-primary-600" />,
       title: 'Email Address',
-      details: 'info@verdantiq.com',
+      details: 'info@verdantiq.ca',
     },
   ];
 
